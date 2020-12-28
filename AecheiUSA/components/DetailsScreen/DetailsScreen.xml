@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<component name="DetailsScreen" extends="Group" initialFocus="Buttons">
+    <interface>
+      <!-- Button press handler -->
+        <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+
+        <!-- Playback flag -->
+        <field id="videoPlayerVisible" type="bool" alwaysnotify="true" alias="VideoPlayer.visible"  onChange="onVideoVisibleChange" />
+        
+        <field id="itemContent" type="node" onChange="OnContentChange" />
+    </interface>
+    
+    <!-- main handler -->
+    <script type="text/brightscript" uri="pkg:/components/DetailsScreen/DetailsScreen.brs" />
+	<children>
+	
+        <!-- Item poster -->
+    
+		  <Group>
+		         
+		  <Rectangle
+		    id = "Overhang"
+		    height = "4000"
+		    width = "1920"
+		    color = "0x000000FF"
+		    opacity = "0.5"
+		  />
+
+		    <Poster
+		      id = "Poster"
+		      height = "800"
+		      width = "1000"
+		      loadWidth = "800"
+		      loadHeight = "1000"
+		      loadDisplayMode = "scaleToFit"
+		      translation = "[450,100]"/>
+		      
+		<!--    <Label
+		      id = "Title"
+		      height = "30"
+		      width = "650"
+		      font = "font:LargeBoldSystemFont">
+		      <Font role="font" uri="pkg:/fonts/AvenirNextBold/AvenirNext-DemiBold.ttf" size="72" />
+		      </Label>
+		    <Label
+		      id = "Description"
+		      height = "250"
+		      width = "800"
+		      color = "0xA3A3C2FF"
+		      translation = "[0,75]"
+		      wrap = "true">
+		        <Font role="font" uri="pkg:/fonts/Avenir/Avenir-MediumOblique.ttf" size="40" />
+		      </Label> -->
+		 
+		 
+        <!-- Control buttons -->
+        <LabelList
+            id="Buttons"
+            translation="[850,800]"
+            color="0xFFFFFFFF"
+            focusedColor="0x333333FF"
+            numRows="7"
+            vertFocusAnimationStyle="floatingFocus"
+            itemSize="[250, 50]"
+            />
+		  </Group>
+
+
+        <!-- Playback node -->
+        <Video
+            id="VideoPlayer"
+            visible="false"
+            translation="[0, 0]"
+            height = "4000"
+		    width = "1920"
+            />
+
+    </children>
+
+</component>
